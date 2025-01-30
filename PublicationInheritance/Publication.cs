@@ -31,7 +31,7 @@ namespace PublicationInheritance
 
         public string Title { get; }
 
-        public PublicationType Type { get; }
+        public PublicationType Type { get; set; }
 
         public string? CopyrightName { get; private set; }
 

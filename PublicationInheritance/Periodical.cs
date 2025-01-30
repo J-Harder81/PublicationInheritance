@@ -8,12 +8,12 @@ namespace PublicationInheritance
 {
     public abstract class Periodical : Publication
     {
-        public Periodical(string title, int volume, int issue, string frequency, string publisher, PublicationType periodicalType) :
-               this(title, string.Empty, volume, issue, frequency, publisher, periodicalType)
+        public Periodical(string title, int volume, int issue, string frequency, string publisher, PublicationType type) :
+               this(title, string.Empty, volume, issue, frequency, publisher, type)
         { }
 
-        public Periodical(string title, string issn, int volume, int issue, string frequency, string publisher, PublicationType periodicalType) : 
-               base(title, publisher, periodicalType)
+        public Periodical(string title, string issn, int volume, int issue, string frequency, string publisher, PublicationType type) : 
+               base(title, publisher, type)
         {
             if (!string.IsNullOrEmpty(issn))
             {
@@ -40,8 +40,6 @@ namespace PublicationInheritance
                 throw new ArgumentException("The frequency is required.");
 
             Frequency = frequency;
-
-            PeriodicalType = periodicalType;
         }
 
         public string ISSN { get; }
@@ -51,8 +49,6 @@ namespace PublicationInheritance
         public int Issue { get; }
 
         public string Frequency { get; }
-
-        public PublicationType PeriodicalType { get; }
                
         public override string ToString() => $"{Title}, Volume {Volume}, Issue {Issue}, Frequency: {Frequency}";
     }
